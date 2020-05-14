@@ -1,0 +1,20 @@
+$primary: #B8860B;
+$grid-breakpoints: (
+    xs: 0,
+    sm: 375px,
+    md: 750px,
+    xl: 1170px
+);
+
+$container-max-widths: (
+  sm: 375px,
+  md: 750px,
+  xl: 1170px
+);
+
+$font-family-sans-serif :      "Open Sans", sans-serif;
+
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+// @import '~bootstrap/dist/css/bootstrap.css';
+// @import '~bootstrap-vue/dist/bootstrap-vue.css';

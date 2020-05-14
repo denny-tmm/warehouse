@@ -1,5 +1,5 @@
 <template>
-	<div id="home" class="mt-4">
+	<div id="personal-storage" class="mt-4">
 		<b-container>
 			<b-row align-v="stretch">
 				<b-col md="6" class="top-menu">
@@ -17,15 +17,44 @@
 			</b-row>
 		</b-container>
 
-		<b-container style="border: 1px solid #B8860B;">
+		<b-container class="pt-4" style="border-width: 0 1px 1px 1px; border-style: solid; border-color: #B8860B;">
 			<b-row>
+				<b-col md="4">
+					<h6 class="text-left font-weight-bold">Find Your Nearest Your Space</h6>
+					<b-form inline>
+						<b-form-select
+							:value="null"
+							:options="locations"
+							class="w-75 mr-2"></b-form-select>
+						<b-button type="submit" variant="primary">Find ></b-button>
+					</b-form>
+				</b-col>
+				<b-col md="5">
+					<h6 class="text-left font-weight-bold">Storing Personal Items</h6>
+					<ul>
+						<li>I'm moving home</li>
+						<li>I'm renovating my home</li>
+						<li>I need extra space at home</li>
+						<li>I need temporary storage</li>
+					</ul>
+				</b-col>
+				<b-col md="3">
+					<b-col md="9" offset-md="3" align-self="end">
+						<b-button size="sm" variant="primary" class="my-2" block to="/">Storage Calculator ></b-button>
+						<b-button size="sm" variant="primary" class="my-2" block to="/">Get Your Quote ></b-button>
+						<b-button size="sm" variant="primary" class="my-2" block to="/">Reserve Your Space ></b-button>
+					</b-col>
+				</b-col>
+			</b-row>
+
+			<b-row class="my-1">
 				<b-carousel
 					id="home-carousel"
 					:interval="4000"
 					background="#FFFFFF"
 					indicators
 					class="carousel-center"
-					style="min-width: 100%;">
+					style="min-width: 98%; margin-left: 1%; margin-right: 1%;">
 					<b-carousel-slide 
 						img-src="https://images.unsplash.com/photo-1566121933407-3c7ccdd26763?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
 						fluid-grow
@@ -64,14 +93,7 @@
 				</b-carousel>
 			</b-row>
 
-			<b-row class="my-3">
-				<b-col sm="2" offset-sm="10">
-					<b-button variant="primary" to="/" block size="sm">Storage Calculator ></b-button>
-					<b-button variant="primary" class="mt-2" to="/" block size="sm">Reserve Your Space ></b-button>
-				</b-col>
-			</b-row>
-
-			<b-row>
+			<b-row class="my-4">
 				<b-card-group>
 					<b-card
 						title="Your Promotions"
@@ -120,16 +142,47 @@
 
 <script>
 export default {
-	name: 'Home',
+	data () {
+		return {
+			location: null,
+			locations: [
+				{
+					value: null,
+					text: 'Select'
+				},
+				{
+					value: 'jakarta',
+					text: 'Jakarta'
+				},
+				{
+					value: 'bandung',
+					text: 'Bandung'
+				},
+				{
+					value: 'surabaya',
+					text: 'Surabaya'
+				},
+			]
+		}
+	}
 }
 </script>
 
 <style scoped>
 .top-menu {
-	border: 1px solid #B8860B;
 	padding: 15px;
 	width: 100%;
 	border-radius: 15px 15px 0 0;
+	border-color: #B8860B;
+	border-style: solid;
+}
+
+.top-menu:nth-child(1) {
+	border-width: 1px 1px 0 1px;
+}
+
+.top-menu:nth-child(2) {
+	border-width: 1px;
 }
 
 .top-menu a {
@@ -143,28 +196,4 @@ export default {
 	}
 }
 
-#home-carousel h1 {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	transform: scaleX(1.1);
-	transform-origin: center;
-	letter-spacing: 2.5px;
-}
-
-#home-carousel h3 {
-	background-color: #FFFFFF;
-	opacity: 0.5;
-	color: #3D3D3D;
-	padding: 5px 0;
-}
-
-.card-title {
-	font-size: 18px;
-	font-weight: 600;
-	text-align: left;
-}
-
-.card-text {
-	font-size: 12px;
-	text-align: left;
-}
 </style>
