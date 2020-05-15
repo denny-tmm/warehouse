@@ -1,6 +1,8 @@
 <template>
-	<div id="home" class="mt-4">
-		<b-container>
+	<div id="home">
+		<Header />
+
+		<b-container class="mt-5">
 			<b-row align-v="stretch">
 				<b-col md="6" class="top-menu">
 					<router-link to="/personal-storage">
@@ -65,9 +67,11 @@
 			</b-row>
 
 			<b-row class="my-3">
-				<b-col sm="2" offset-sm="10">
-					<b-button variant="primary" to="/" block size="sm">Storage Calculator ></b-button>
-					<b-button variant="primary" class="mt-2" to="/" block size="sm">Reserve Your Space ></b-button>
+				<b-col sm="6" offset-sm="6" class="text-right">
+					<b-button variant="primary" to="/" size="sm">Storage Calculator ></b-button>
+				</b-col>
+				<b-col sm="6" offset-sm="6" class="text-right">
+					<b-button variant="primary" class="mt-2" to="/" size="sm">Reserve Your Space ></b-button>
 				</b-col>
 			</b-row>
 
@@ -115,12 +119,26 @@
 				</b-card-group>
 			</b-row>
 		</b-container>
+
+		<Footer />
 	</div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+
 export default {
 	name: 'Home',
+	components: {
+		Header,
+		Footer
+	},
+	data () {
+		return {
+
+		}
+	}
 }
 </script>
 

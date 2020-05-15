@@ -1,6 +1,8 @@
 <template>
-	<div id="personal-storage" class="mt-4">
-		<b-container>
+	<div id="personal-storage">
+		<Header />
+
+		<b-container class="mt-4">
 			<b-row align-v="stretch">
 				<b-col md="6" class="top-menu">
 					<router-link to="/personal-storage">
@@ -31,7 +33,7 @@
 				</b-col>
 				<b-col md="5">
 					<h6 class="text-left font-weight-bold">Storing Personal Items</h6>
-					<ul>
+					<ul class="text-left">
 						<li>I'm moving home</li>
 						<li>I'm renovating my home</li>
 						<li>I need extra space at home</li>
@@ -137,11 +139,20 @@
 				</b-card-group>
 			</b-row>
 		</b-container>
+
+		<Footer />
 	</div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+
 export default {
+	components: {
+		Header,
+		Footer
+	},
 	data () {
 		return {
 			location: null,
